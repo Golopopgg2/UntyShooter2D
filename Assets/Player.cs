@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Class work
+    // Home Work
 
     private void Start()
     {
