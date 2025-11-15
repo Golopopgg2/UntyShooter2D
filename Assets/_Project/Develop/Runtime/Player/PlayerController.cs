@@ -1,13 +1,18 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private IPlayerInput _input;
+    private TransformMovement _mover;
+    private ProjectileShooter _shooter;
     private float _speed = 5;
 
     private void Start()
     {
         _input = new PCPlayerInput();
+        _mover = new TransformMovement(transform, _speed);
+        _shooter = new ProjectileShooter();
     }
 
     private void Update()
@@ -15,9 +20,12 @@ public class PlayerController : MonoBehaviour
         Vector2 moveDirection = _input.GetMovementDirection();
         Vector2 lookDirection = (_input.GetLookDirection() - transform.position).normalized;
 
-        transform.Translate(moveDirection * _speed * Time.deltaTime);
+        _mover.Move(moveDirection);
+        _mover.Rotate(lookDirection);
 
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        if (_input.IsShootKeyPressed())
+        {
+            _shooter.Shoot();
+        }
     }
 }

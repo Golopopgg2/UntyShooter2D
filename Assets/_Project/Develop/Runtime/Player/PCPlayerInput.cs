@@ -7,9 +7,6 @@ public class PCPlayerInput : IPlayerInput
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        Debug.Log("Horizontal: " + horizontalInput);
-        Debug.Log("Vertical: " + verticalInput);
-
         return new Vector2(horizontalInput, verticalInput);
     }
 
@@ -19,5 +16,10 @@ public class PCPlayerInput : IPlayerInput
         Vector3 worldMousePos = Camera.main.ScreenToWorldPoint(mousePosition);
 
         return worldMousePos;
+    }
+
+    public bool IsShootKeyPressed()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
     }
 }
