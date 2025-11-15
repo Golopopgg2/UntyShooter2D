@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
         Vector2 moveDirection = _input.GetMovementDirection();
         Vector2 lookDirection = (_input.GetLookDirection() - transform.position).normalized;
 
-        transform.Translate(moveDirection * _speed * Time.deltaTime, Space.Self);
+        transform.Translate(moveDirection * _speed * Time.deltaTime);
 
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
