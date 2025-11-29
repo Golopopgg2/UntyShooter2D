@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // сделать сериализированное поле для префаба снаряда и передать его в конструктор shooter-а
+
     private IPlayerInput _input;
     private TransformMovement _mover;
     private ProjectileShooter _shooter;

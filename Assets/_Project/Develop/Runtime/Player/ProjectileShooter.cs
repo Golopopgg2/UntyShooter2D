@@ -8,7 +8,7 @@ public class ProjectileShooter
     {
         Debug.Log("Shoot");
         // 1. Создается клон префаба снаряда (Projectile)
-        // Object.Instantiate();
+        // var projectile = Object.Instantiate();
         // 2. У снаряда вызывается метод Launch, который задает ему ускорение в направлении выстрела
 
     }
